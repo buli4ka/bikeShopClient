@@ -1,0 +1,66 @@
+/*.imageInput {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    height: 100%;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.imageInput:hover .imageInput__remove-background,*/
+/*.imageInput:hover .imageInput__icon-remove {*/
+/*    opacity: 1;*/
+/*}*/
+
+
+/*.imageInput__title {*/
+/*    color: gray;*/
+/*    font-size: 16px;*/
+
+/*    margin-bottom: 5px;*/
+/*}*/
+
+/*.imageInput__dropzone {*/
+/*    position: relative;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    border-radius: 5px;*/
+/*    border: 1px solid coral;*/
+/*}*/
+
+/*.imageInput__preview {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+
+/*.imageInput__input {*/
+/*    display: none;*/
+/*}*/
+
+/*.imageInput__remove-background {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    opacity: 0;*/
+/*    transition: opacity 0.3s;*/
+/*    background-color: black;*/
+/*}*/
+
+
+/*svg {*/
+/*    fill: white;*/
+/*}*/
+
+/*path {*/
+/*    fill: white;*/
+/*}*/
+
+
+/*.imageInput__icon-remove {*/
+/*    transition: opacity 0.3s;*/
+/*    opacity: 0;*/
+/*}*/

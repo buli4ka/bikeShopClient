@@ -1,0 +1,31 @@
+.mySelect {
+    appearance: none;
+    border: none;
+    border-bottom: coral 1px solid;
+    font: inherit;
+    width:100%;
+    height: 5vh;
+    padding: 5px 5px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+.mySelect:hover{
+    background-color:rgba(0, 0, 0, 0.1);
+}
+.myOption {
+    color: inherit;
+    appearance: none;
+    font-size: 16px;
+    list-style:none;
+}
+
+.mySelect:focus {
+    outline: none;
+}
+
+/* Remove IE arrow */
+.mySelect::-ms-expand {
+    display: none;
+}
+

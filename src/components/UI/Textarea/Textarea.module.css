@@ -1,0 +1,9 @@
+.myTextarea{
+    width: 100%;
+    padding: 5px 5px;
+    margin: 1vw 0;
+    border: coral 1px solid;
+    height: 10vh;
+    font-size: 16px;
+    overflow: hidden;
+}
