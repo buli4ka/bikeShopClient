@@ -8,7 +8,6 @@ export const useHttp = () => {
         setLoading(true)
         try {
 
-            console.log()
             if (body) {
                 body = JSON.stringify(body);
                 if(Object.keys(headers).length === 0)

@@ -5,8 +5,9 @@ import styles from './NavBar.module.css'
 import {AuthForm} from "../AuthForm/AuthForm";
 import {AuthContext} from "../../context/authContext";
 import {useHttp} from "../../hooks/useHttp";
+import {server} from "../../config";
 
-export const Navbar = ({isAuthenticated, userRole}) => {
+export const Navbar = () => {
     const [modal, setModal] = useState(false);
     const [isLogin, setIsLogin] = useState(true)
     const auth = useContext(AuthContext)
@@ -19,8 +20,8 @@ export const Navbar = ({isAuthenticated, userRole}) => {
     }
     const validationHandler = async (form) => {
         try {
-            let action = require('../../config').server.serverDomain;
-            isLogin ? action += require('../../config').server.user.login : action += require('../../config').server.user.registration
+            let action = server.serverDomain;
+            isLogin ? action += server.user.login : action += server.user.registration
 
             const data = await request(action, 'POST', {...form})
             auth.login(data.token, data.userId, data.userRole)
@@ -35,7 +36,7 @@ export const Navbar = ({isAuthenticated, userRole}) => {
                 <NavLink className={styles.navLink} style={{float: "left"}}
                          to={require('../../config').client.mainUrl}>Logo</NavLink>
 
-                {!isAuthenticated &&
+                {!auth.isAuthenticated &&
                 <>
                     <NavLink to={require('../../config').client.mainUrl} className={styles.navLink}
                              onClick={() => {
@@ -54,7 +55,7 @@ export const Navbar = ({isAuthenticated, userRole}) => {
                         <AuthForm validationHandler={validationHandler} isLogin={isLogin} loading={loading}/>
 
                     </Modal></>}
-                {isAuthenticated &&
+                {auth.isAuthenticated &&
                 <>
 
                     <NavLink to={require('../../config').client.mainUrl} className={styles.navLink}
@@ -63,7 +64,7 @@ export const Navbar = ({isAuthenticated, userRole}) => {
 
 
                 </>}
-                {userRole === 'admin' &&
+                {auth.userRole === 'admin' &&
                 <NavLink className={styles.navLink} to={require('../../config').client.adminUrl}>Admin</NavLink>}
             </div>
 

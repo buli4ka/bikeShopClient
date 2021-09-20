@@ -8,7 +8,7 @@ export const Gallery = (props) => {
             {
                 props.images.map((i, index) => {
                 return (
-                    <a  key={index} href={`#slide-${index + 1}`} />
+                    <a key={index} href={`#slide-${index + 1}`} />
                 )
             })}
             <div className={styles.slides}>

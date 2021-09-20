@@ -10,7 +10,7 @@ import {useHistory} from "react-router-dom";
 import axios from "axios";
 import {server} from "../../../config";
 
-export const AddBike = () => {
+export const AddBike = (props) => {
     const [manufacturers, setManufacturers] = useState([{name: '', id: ''}])
     const [images, setImages] = useState([])
     const {loading, request} = useHttp()
@@ -42,7 +42,6 @@ export const AddBike = () => {
     }
 
     const addBike = async (e) => {
-
         e.preventDefault()
         try {
             const data = await request(server.serverDomain
@@ -57,11 +56,8 @@ export const AddBike = () => {
                 await axios.post(server.serverDomain
                                     +server.image.addImages  +data.id
                     ,fd
-                ).then(r=>console.log(r))
-
+                )
             }
-
-
             history.replace(require('../../../config').client.adminUrl)
         } catch
             (e) {

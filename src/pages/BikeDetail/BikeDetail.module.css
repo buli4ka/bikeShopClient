@@ -16,8 +16,9 @@
     grid-row-end: 5;
 }
 .content{
-
-
+    grid-column-start: 3;
+    grid-row-start: 2;
+    text-align: center;
 }
 
 .footer{

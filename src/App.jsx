@@ -17,9 +17,9 @@ export default function App() {
     }
     return (
 
-        <AuthContext.Provider value={{token, login, logout, userId, isAuthenticated}}>
+        <AuthContext.Provider value={{token, login, logout, userId, isAuthenticated,userRole}}>
             <Router>
-                <Navbar isAuthenticated ={isAuthenticated} userRole={userRole}/>
+                <Navbar />
                 <div className={styles.container}>
                     {routes}
                 </div>

@@ -9,6 +9,7 @@ module.exports = {
             getBike:"/api/bike/getBikeById/",
             getBikes:"/api/bike/getBikes",
             addBike:"/api/bike/addBike",
+            deleteBike:"/api/bike/deleteBike/",
         },
         manufacturer:{
             getManufacturers:"/api/manufacturer/getManufacturers",
