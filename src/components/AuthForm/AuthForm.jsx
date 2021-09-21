@@ -45,7 +45,7 @@ export const AuthForm = ({validationHandler, isLogin, loading}) => {
             {!isLogin ?
                 registrationSample : null}
             {loginSample}
-            <Button style={{marginTop:"10vh"}}disabled={loading} onClick={action}>{isLogin ? "Login"
+            <Button style={{marginTop:"10vh"}} disabled={loading} onClick={action}>{isLogin ? "Login"
                 : "Register"}</Button>
         </form>
     )

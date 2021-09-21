@@ -24,4 +24,6 @@
 .footer{
 
 }
-
+.cartButton:disabled{
+    background-color: mediumseagreen !important;
+}

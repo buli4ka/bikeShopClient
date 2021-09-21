@@ -35,6 +35,7 @@ module.exports = {
         addManufacturerUrl: "/admin/addManufacturer",
         cartUrl: "/cart",
         authUrl: "/auth",
-        storageName: "userData"
+        userStorageName: "userData",
+        cartStorageName:"Cart"
     }
 }

@@ -1,7 +1,7 @@
 import {useCallback, useState, useEffect} from "react"
 
 
-const storageName = require("../config").client.storageName
+const storageName = require("../config").client.userStorageName
 
 export const useAuth = () => {
     const [token, setToken] = useState(null)
