@@ -6,12 +6,17 @@ import {AuthForm} from "../AuthForm/AuthForm";
 import {AuthContext} from "../../context/authContext";
 import {useHttp} from "../../hooks/useHttp";
 import {server} from "../../config";
+import {useDispatch, useSelector} from "react-redux";
+import {itemsSelector} from "../../store/reducers/cart/cartReducer";
+import {addItemToCart} from "../../store/reducers/cart/action";
 
 export const Navbar = () => {
     const [modal, setModal] = useState(false);
     const [isLogin, setIsLogin] = useState(true)
     const auth = useContext(AuthContext)
     const {loading, request} = useHttp()
+    const dispatch = useDispatch();
+    const items = useSelector(itemsSelector)
 
     const logoutHandler = event => {
         event.preventDefault()
@@ -25,6 +30,12 @@ export const Navbar = () => {
 
             const data = await request(action, 'POST', {...form})
             auth.login(data.token, data.userId, data.userRole)
+            const cart = await request(
+                server.serverDomain + server.cart.getItems + data.userId
+                , 'GET'
+                , null)
+            cart.forEach(b=>dispatch(addItemToCart(b.id)))
+
 
         } catch (e) {
         }

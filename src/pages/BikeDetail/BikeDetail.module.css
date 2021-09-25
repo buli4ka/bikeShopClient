@@ -1,29 +1,48 @@
-.container{
+.container {
     margin-top: 5vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.name{
+
+.name {
 
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
 }
-.image{
+
+.image {
     grid-column-start: 1;
     grid-row-start: 3;
     grid-row-end: 5;
 }
-.content{
+
+.content {
     grid-column-start: 3;
     grid-row-start: 2;
     text-align: center;
 }
 
-.footer{
+.footer {
 
 }
-.cartButton:disabled{
-    background-color: mediumseagreen !important;
+
+.cartButton:disabled {
+    background-color: forestgreen;
+    content: "sa"
+}
+
+.cartButton {
+    float: right;
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
 }

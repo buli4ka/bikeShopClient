@@ -2,7 +2,9 @@ import React, {useEffect, useState} from "react";
 import {Button} from "../UI/Button/Button";
 import {Input} from "../UI/Input/Input";
 
+
 export const AuthForm = ({validationHandler, isLogin, loading}) => {
+
     const data = [{
         email: '',
         password: ''

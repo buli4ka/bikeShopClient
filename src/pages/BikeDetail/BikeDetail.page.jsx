@@ -1,26 +1,28 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {useHttp} from "../../hooks/useHttp";
 import {server} from "../../config";
 import styles from './BikeDetail.module.css'
 import {Preloader} from "../../components/UI/Preloader/Preloader";
 import {Gallery} from "../../components/Gallery/Gallery";
-import {Button} from "../../components/UI/Button/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {addItemToCart} from "../../store/reducers/cart/action";
 import {itemsSelector} from "../../store/reducers/cart/cartReducer";
+import {AuthContext} from "../../context/authContext";
 
 export const BikeDetailPage = (props) => {
     const bikeId = useParams().id
     const [bike, setBike] = useState()
     const [images, setImages] = useState([])
     const [isCartButton, setIsCartButton] = useState(false)
-    const [cartButtonText,setCartButtonText ]=useState("Add to cart")
+    const [cartButtonText, setCartButtonText] = useState("Add to cart")
     const {loading, request} = useHttp()
     const [manufacturer, setManufacturer] = useState({})
     const dispatch = useDispatch();
     const items = useSelector(itemsSelector)
-    console.log(items)
+    const auth = useContext(AuthContext)
+
+
     useEffect(() => {
         const fetchBike = async () => {
             const fetched = await request(server.serverDomain + server.bike.getBike + bikeId
@@ -40,16 +42,26 @@ export const BikeDetailPage = (props) => {
 
     }, [request, bikeId]);
 
-    useEffect(()=>{
-        let check = items.find(i=> i === bikeId)
-        setIsCartButton(!!check)
-    })
-    const addToCart = (e, id) => {
-        e.target.style.backgroundColor='green'
-        dispatch(addItemToCart(id));
+    useEffect(() => {
+        let check = items.find(i => i === bikeId)
+        if(!!check) {
+            setIsCartButton(!!check)
+            setCartButtonText("Added to cart")
+        }
+    }, [items, bikeId])
+
+    const addToCart = async () => {
+        const data = await request(
+            server.serverDomain + server.cart.addToCart
+            ,'POST'
+            ,{userId:auth.userId,bikeId}
+        )
+        console.log(data)
+        dispatch(addItemToCart(bikeId));
         setCartButtonText("Added to cart")
         setIsCartButton(true)
     }
+
     if (loading) {
         return <Preloader/>
     }
@@ -69,7 +81,8 @@ export const BikeDetailPage = (props) => {
             <p>
                 Price: {bike?.price}$
             </p>
-            <Button className={styles.cartButton} disabled={isCartButton} onClick={(e) => addToCart(e, bike?.id)}>{cartButtonText}</Button>
+            {auth.isAuthenticated && <button className={styles.cartButton} disabled={isCartButton}
+                                             onClick={(e) => addToCart()}>{cartButtonText}</button>}
         </div>
 
     </div>)

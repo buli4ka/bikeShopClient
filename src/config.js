@@ -2,26 +2,33 @@ module.exports = {
     server: {
         serverDomain: "http://localhost:5000",
         user:{
-            registration: "/api/user/registration",
-            login:"/api/user/login",
+            registration: "/api/user/registration/",
+            login:"/api/user/login/",
         },
         bike:{
             getBike:"/api/bike/getBikeById/",
-            getBikes:"/api/bike/getBikes",
-            addBike:"/api/bike/addBike",
+            getBikes:"/api/bike/getBikes/",
+            getBikesByIds:"/api/bike/getBikesByIds/",
+            addBike:"/api/bike/addBike/",
             deleteBike:"/api/bike/deleteBike/",
+
         },
         manufacturer:{
-            getManufacturers:"/api/manufacturer/getManufacturers",
+            getManufacturers:"/api/manufacturer/getManufacturers/",
             getManufacturerById:"/api/manufacturer/getManufacturerById/",
-            addManufacturer:"/api/manufacturer/addManufacturer"
+            addManufacturer:"/api/manufacturer/addManufacturer/"
         },
         image:{
             addImages:"/api/image/addImages/",
             getFirstBikeImage:"/api/image/getFirstBikeImage/",
             getImageIds:"/api/image/getIds/",
             getImage:"/api/image/getBikeImage/"
+        },
+        cart:{
+            addToCart:"/api/cart/addToCart/",
+            getItems:"/api/Cart/getCartItems/"
         }
+
 
 
 
