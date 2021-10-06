@@ -3,11 +3,11 @@ import styles from './BikesList.module.css'
 import {BikeCard} from "../BikeCard/BikeCard";
 
 
-export const BikesList = ({bikes, title}) => {
-    if (!bikes.length) {
+export const BikesList = ({cars, title}) => {
+    if (!cars.length) {
         return (
             <h1 style={{textAlign: 'center'}}>
-                Bikes not found!
+                Cars not found!
             </h1>)
     }
 
@@ -18,8 +18,8 @@ export const BikesList = ({bikes, title}) => {
                 {title}
             </h1>
             <div className={styles.content}>
-                {bikes.map(bike => {
-                    return (<BikeCard key={bike.id} bike={bike}/>)
+                {cars.map(car => {
+                    return (<BikeCard key={car.id} car={car}/>)
 
                 })}
 

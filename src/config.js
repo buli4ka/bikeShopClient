@@ -5,22 +5,25 @@ module.exports = {
             registration: "/api/user/registration",
             login:"/api/user/login",
         },
-        bike:{
-            getBike:"/api/bike/getBikeById/",
-            getBikes:"/api/bike/getBikes",
-            addBike:"/api/bike/addBike",
-            deleteBike:"/api/bike/deleteBike/",
+        car:{
+            getCar:"/api/Car/getById/",
+            getCars:"/api/Car/getAll/",
+            addCar:"/api/Car/add/",
+            deleteCar:"/api/Car/delete/",
+            updateCar:"/api/Car/update/"
         },
         manufacturer:{
-            getManufacturers:"/api/manufacturer/getManufacturers",
-            getManufacturerById:"/api/manufacturer/getManufacturerById/",
-            addManufacturer:"/api/manufacturer/addManufacturer"
+            getManufacturers:"/api/manufacturer/getAll/",
+            getManufacturerById:"/api/manufacturer/getById/",
+            addManufacturer:"/api/manufacturer/add/",
+            deleteManufacturer:"/api/manufacturer/delete/",
+            updateManufacturer:"/api/manufacturer/update/"
         },
         image:{
-            addImages:"/api/image/addImages/",
-            getFirstBikeImage:"/api/image/getFirstBikeImage/",
+            addImages:"/api/image/add/",
+            getPreview:"/api/image/getPreview/",
             getImageIds:"/api/image/getIds/",
-            getImage:"/api/image/getBikeImage/"
+            getImage:"/api/image/getById/"
         }
 
 
